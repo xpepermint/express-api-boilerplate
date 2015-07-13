@@ -1,7 +1,13 @@
+import {Location} from '../models';
+
 export function index(req, res, next) {
-  res.json({description: `List of locations.`});
+  Location.findAll().then((locations) => {
+    res.json(locations);
+  });
 };
 
 export function show(req, res, next) {
-  res.json({description: `Location #id: ${req.params.id}`});
+  Location.findOne({id: req.params.id}).then((location) => {
+    res.json(location);
+  });
 };

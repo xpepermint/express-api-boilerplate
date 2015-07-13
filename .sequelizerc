@@ -1,0 +1,4 @@
+module.exports = {
+  'config': './app/sequelize.json',
+  'migrations-path': './app/migrations'
+};
