@@ -11,3 +11,5 @@ Follow these steps to start developing your next API app.
 * Run `npm install` to install dependencies.
 
 * Run `npm run server` to start HTTP server.
+
+* Open browser and navigate to `http://localhost:3333`.
