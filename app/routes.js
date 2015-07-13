@@ -1,9 +1,13 @@
 import express from 'express';
 
-let router = express.Router();
-let locations = require('./controllers/locations');
+import locations from './controllers/locations';
 
-router.route('/locations').get(locations.index);
-router.route('/locations/:id').get(locations.show);
+let router = express.Router();
+
+router.route('/locations')
+  .get(locations.index)
+  .post(locations.create);
+router.route('/locations/:id')
+  .get(locations.show);
 
 export default router;

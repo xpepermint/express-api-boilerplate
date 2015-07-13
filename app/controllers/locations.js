@@ -1,13 +1,21 @@
 import {Location} from '../models';
 
-export function index(req, res, next) {
+function index(req, res) {
   Location.findAll().then((locations) => {
     res.json(locations);
   });
 };
 
-export function show(req, res, next) {
+function show(req, res) {
   Location.findOne({id: req.params.id}).then((location) => {
     res.json(location);
   });
 };
+
+function create(req, res) {
+  Location.create(req.body).then((location) => {
+    res.json(location);
+  });
+};
+
+export default {index, show, create};
