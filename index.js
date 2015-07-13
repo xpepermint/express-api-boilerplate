@@ -1,9 +1,7 @@
 import express from 'express';
+import routes from './app/routes';
 
 let app = express();
-
-app.get('*', function(req, res) {
-  res.send('Hello World!').end();
-});
+app.use(routes);
 
 export default app;
