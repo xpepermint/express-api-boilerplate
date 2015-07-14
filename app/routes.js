@@ -8,6 +8,8 @@ router.route('/locations')
   .get(locations.index)
   .post(locations.create);
 router.route('/locations/:id')
-  .get(locations.show);
+  .get(locations.show)
+  .put(locations.update)
+  .delete(locations.destroy);
 
 export default router;

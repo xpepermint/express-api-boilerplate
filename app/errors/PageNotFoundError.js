@@ -1,10 +1,10 @@
 export default class PageNotFoundError extends Error {
-  constructor(message, options) {
+  constructor(message, status) {
     super();
     Error.captureStackTrace(this, this.constructor);
 
     this.name = this.constructor.name;
-    this.message = message;
-    this.options = options;
+    this.message = message || 'Page not found.';
+    this.status = status || 404;
   }
 }

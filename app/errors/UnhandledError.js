@@ -1,10 +1,10 @@
 export default class UnhandledError extends Error {
-  constructor(message, options) {
+  constructor(err, status) {
     super();
     Error.captureStackTrace(this, this.constructor);
 
     this.name = this.constructor.name;
-    this.message = message;
-    this.options = options;
+    this.message = err.message || 'Unhandler error.';
+    this.status = status || 500;
   }
 }

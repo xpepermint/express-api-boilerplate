@@ -4,20 +4,23 @@
     "password": null,
     "database": "api_development",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "native": true
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "api_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "native": true
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "api_production",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "native": true
   }
 }
