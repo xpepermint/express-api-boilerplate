@@ -24,15 +24,6 @@ Follow these steps to start developing your next API app.
 
 * Open browser and navigate to `http://localhost:3333`.
 
-# Commands
-
-* Create new migration and migrate.
-
-```
-./node_modules/.bin/sequelize model:create --name User --attributes name:string,email:string
-./node_modules/.bin/sequelize db:migrate
-```
-
 # Related Projects
 
 * [isomorphic-react-flux-boilerplate](https://github.com/xpepermint/isomorphic-react-flux-boilerplate)
