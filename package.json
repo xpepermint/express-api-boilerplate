@@ -31,7 +31,8 @@
     "pg-hstore": "^2.3.2",
     "pg-native": "^1.8.1",
     "query-types": "^0.1.3",
-    "sequelize": "^3.3.2"
+    "sequelize": "^3.3.2",
+    "socket.io-emitter": "^0.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.3.7",
