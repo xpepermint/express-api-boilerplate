@@ -26,8 +26,10 @@
   "homepage": "https://github.com/xpepermint/express-api-boilerplate#readme",
   "dependencies": {
     "babel": "^5.6.14",
+    "bluebird": "^2.9.34",
     "body-parser": "^1.13.2",
     "express": "^4.13.1",
+    "jsonwebtoken": "^5.0.4",
     "pg": "^4.4.0",
     "pg-hstore": "^2.3.2",
     "pg-native": "^1.8.1",

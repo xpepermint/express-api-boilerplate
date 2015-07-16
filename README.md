@@ -6,7 +6,9 @@
 
 * Advanced error handling
 
-* Nice helpers (Socket.io emitter)
+* [JWT](https://github.com/auth0/node-jsonwebtoken) authentication
+
+* Useful helpers (Socket.io emitter)
 
 * ES6 syntax
 
