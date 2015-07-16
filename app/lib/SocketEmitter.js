@@ -12,8 +12,9 @@ SocketEmitter.emit('event', {room: '/locations', payload: 'Hello World!'});
 */
 
 import Emitter from 'socket.io-emitter';
+import config from '../../config';
 
-let emitter = Emitter({host: 'localhost', port: 6379});
+let emitter = Emitter({host: config.socketServerHost, port: config.socketServerHost});
 
 class SocketEmitter {
   emit(name, options) => {

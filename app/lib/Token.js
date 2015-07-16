@@ -16,20 +16,19 @@ Token.verify(token, options).then((payload) => {
 
 import Bluebird from 'bluebird';
 import jwt from 'jsonwebtoken';
-
-const secret = 'app secret here';
+import config from '../../config';
 
 class Token {
   generate(payload, options) {
-    return jwt.sign(payload, secret, options);
+    return jwt.sign(payload, config.appSecret, options);
   }
 
   decode(token, options) {
-    return jwt.decode(token, secret, options);
+    return jwt.decode(token, config.appSecret, options);
   }
 
   verify(token, options) {
-    return Bluebird.promisify(jwt.verify)(token, secret, options);
+    return Bluebird.promisify(jwt.verify)(token, config.appSecret, options);
   }
 
   parseHeader(header) {

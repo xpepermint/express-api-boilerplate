@@ -1,26 +1,20 @@
-import fs from 'fs';
-import path from 'path';
 import Sequelize from 'sequelize';
-import settings from '../sequelize';
+import fs from 'fs';
+import config from '../../config';
 
-let basename = path.basename(module.filename);
-let env = process.env.NODE_ENV || 'development';
-let config = settings[env];
-let sequelize = new Sequelize(config.database, config.username, config.password, config);
+let sequelize = new Sequelize(config.databaseName, config.databaseUsername, config.databasePassword, {dialect: 'postgres', native: true});
+
 let db = {};
-
 fs.readdirSync(__dirname).filter((file) => {
-  return (file.indexOf('.') !== 0) && (file !== basename);
+  return (file.indexOf('.') !== 0) && (file !== 'index.js');
 }).forEach((file) => {
   if (file.slice(-3) !== '.js') return;
-  let model = sequelize['import'](path.join(__dirname, file));
+  let model = sequelize.import(`${__dirname}/${file}`);
   db[model.name] = model;
 });
-
 Object.keys(db).forEach((modelName) => {
   if ('associate' in db[modelName]) db[modelName].associate(db);
 });
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
