@@ -1,23 +1,26 @@
 export default {
   up: (migration, DataTypes) => {
-    return migration.createTable('Locations', {
+    return migration.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      userId: {
-        allowNull: false,
-        type: DataTypes.INTEGER,
-        references: {model: 'Users', key: 'id'},
-        onDelete: 'CASCADE'
+      firstName: {
+        type: DataTypes.STRING
       },
-      name: {
+      lastName: {
+        type: DataTypes.STRING
+      },
+      username: {
         type: DataTypes.STRING,
         unique: true
       },
-      description: {
+      passwordSalt: {
+        type: DataTypes.STRING
+      },
+      passwordHash: {
         type: DataTypes.STRING
       },
       createdAt: {
@@ -32,6 +35,6 @@ export default {
   },
 
   down: (migration, DataTypes) => {
-    return migration.dropTable('Locations');
+    return migration.dropTable('Users');
   }
 };

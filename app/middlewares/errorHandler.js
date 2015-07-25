@@ -3,9 +3,8 @@ import FieldsValidationError from '../errors/FieldsValidationError';
 import PageNotFoundError from '../errors/PageNotFoundError';
 import RecordNotFoundError from '../errors/RecordNotFoundError';
 import UnauthenticatedError from '../errors/UnauthenticatedError';
+import UnhandledError from '../errors/UnhandledError';
 import sequelizeErrors from 'sequelize/lib/errors';
-import JwtError from 'jsonwebtoken/lib/JsonWebTokenError';
-import JwtExpiredError from 'jsonwebtoken/lib/TokenExpiredError';
 
 export default function errorHandler(err, req, res, next) {
   let status;
@@ -19,10 +18,6 @@ export default function errorHandler(err, req, res, next) {
     err = new FieldsValidationError().loadError(err);
   } else if (err instanceof sequelizeErrors.UniqueConstraintError) {
     err = new FieldsValidationError().loadError(err);
-  } else if (err instanceof JwtError) {
-    err = new AccessTokenError();
-  } else if (err instanceof JwtExpiredError) {
-    err = new AccessTokenError()
   } else {
     console.log(err);
     err = new UnhandledError(err);

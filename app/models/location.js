@@ -1,9 +1,10 @@
 export default function(sequelize, DataTypes) {
-
-  let Location = sequelize.define('Location', {
+  return sequelize.define('Location', {
+    userId: {
+      type: DataTypes.INTEGER
+    },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
       defaultValue: '',
       unique: {msg: 'must be unique'},
       validate: {
@@ -17,7 +18,11 @@ export default function(sequelize, DataTypes) {
         notEmpty: {msg: 'is required'}
       }
     }
-  }, {});
-
-  return Location;
+  }, {
+    classMethods: {associate}
+  });
 };
+
+function associate(models) {
+  models.Location.belongsTo(models.User, {foreignKey: 'userId'});
+}

@@ -1,4 +1,7 @@
-module.exports = {
-  'config': './app/sequelize.json',
-  'migrations-path': './app/migrations'
+import config from './config';
+
+export default {
+  'migrations-path': './app/migrations',
+  'modelsPath': './app/models',
+  'url': 'postgres://'+config.databaseUsername+':'+config.databasePassword+'@'+config.databaseHost+'/'+config.databaseName
 };
