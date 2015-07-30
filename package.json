@@ -2,7 +2,7 @@
   "name": "express-api-boilerplate",
   "version": "1.0.0",
   "description": "Super simple Express API template",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
     "server": "nodemon --exec ./node_modules/.bin/babel-node --stage 0 -- ./bin/server",
     "db:migrate": "./node_modules/.bin/sequelize db:migrate",
