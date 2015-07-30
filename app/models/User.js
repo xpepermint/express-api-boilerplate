@@ -56,7 +56,7 @@ function name() {
 }
 
 function associate(models) {
-  models.User.hasMany(models.Location, {foreignKey: 'userId'});
+  models.User.hasMany(models.Project, {foreignKey: 'userId'});
 }
 
 function authenticate(password) {

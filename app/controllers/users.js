@@ -2,7 +2,7 @@ import {User} from '../models';
 import Jwt from '../lib/Jwt';
 import UnauthenticatedError from '../errors/UnauthenticatedError';
 
-export default {login, signup};
+export default {login, signup, me};
 
 function login(req, res, next) {
   User.findOne({where: {username: req.body.username}}).then(user => {
@@ -19,4 +19,10 @@ function signup(req, res, next) {
   User.create(req.body).then(user => {
     res.status(201).json(user);
   }).catch(next);
+}
+
+function me(req, res, next) {
+  let user = req.user.toJSON();
+  user.accessToken = Jwt.generate({userId: user.id});
+  res.status(200).json(user);
 }

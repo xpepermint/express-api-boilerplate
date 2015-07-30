@@ -1,5 +1,5 @@
 export default function(sequelize, DataTypes) {
-  return sequelize.define('Location', {
+  return sequelize.define('Project', {
     userId: {
       type: DataTypes.INTEGER
     },
@@ -10,13 +10,6 @@ export default function(sequelize, DataTypes) {
       validate: {
         notEmpty: {msg: 'is required'}
       }
-    },
-    description: {
-      type: DataTypes.STRING,
-      defaultValue: '',
-      validate: {
-        notEmpty: {msg: 'is required'}
-      }
     }
   }, {
     classMethods: {associate}
@@ -24,5 +17,5 @@ export default function(sequelize, DataTypes) {
 };
 
 function associate(models) {
-  models.Location.belongsTo(models.User, {foreignKey: 'userId'});
+  models.Project.belongsTo(models.User, {foreignKey: 'userId'});
 }

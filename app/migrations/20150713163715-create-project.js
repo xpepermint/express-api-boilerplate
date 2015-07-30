@@ -1,6 +1,6 @@
 export default {
   up: (migration, DataTypes) => {
-    return migration.createTable('Locations', {
+    return migration.createTable('Projects', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,9 +17,6 @@ export default {
         type: DataTypes.STRING,
         unique: true
       },
-      description: {
-        type: DataTypes.STRING
-      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE
@@ -32,6 +29,6 @@ export default {
   },
 
   down: (migration, DataTypes) => {
-    return migration.dropTable('Locations');
+    return migration.dropTable('Projects');
   }
 };
