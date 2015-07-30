@@ -4,6 +4,7 @@ import setUserFromAccessToken from './middlewares/setUserFromAccessToken'
 import requireAuthentication from './middlewares/requireAuthentication'
 import users from './controllers/users';
 import projects from './controllers/projects';
+import stats from './controllers/stats';
 
 let authenticate = [setAccessToken, setUserFromAccessToken, requireAuthentication];
 let router = express.Router();
@@ -22,5 +23,8 @@ router.route('/projects/:id')
   .get(authenticate, projects.show)
   .put(authenticate, projects.update)
   .delete(authenticate, projects.destroy);
+
+router.route('/stats')
+  .get(stats.overview);
 
 export default router;
